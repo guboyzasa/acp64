@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECP NewsPosts</title>
+    <style>
+      {% comment %} table {% endcomment %}
+          table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          table-layout: fixed;
+          width: 100%;
+          }
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 7px;
+              border-color: #96D4D4;
+          }
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+    </style>
+  </head>
+  <body>
+    <p style="text-align: center; font-size: 50px">ECP NewsPosts</p>
+    <p style="text-align: center; font-size: 40px">
+      บทความสั้นๆ บทความดีๆ สอนใจ
+    </p>
+
+    <h2 style="text-align: left">Update Posts!!</h2>
+    {% for news in news %}
+    <table>
+      <!-- <tr>
+          <th colspan="2">ชื่อบทความ</th>
+          <th>คำอธิบายบทความ</th>
+        </tr> -->
+      <tr>
+        <td style="text-align: center">{{news.title}}</td>
+        <td colspan="2">{{news.newsContent}}</td>
+      </tr>
+    </table>
+
+    {% endfor %}
+
+    <p style="text-align: center">Copyright © 2021. All Rights Reserved.</p>
+    <p style="text-align: center">
+      Editor with
+      <a target="_blank" href="https://fb.me/guboyphoto">BOY BBQ.</a>
+    </p>
+  </body>
+</html>

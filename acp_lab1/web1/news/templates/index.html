@@ -1,49 +1,165 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECP NewsPosts</title>
     <style>
-        table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        table-layout: fixed;
-        width: 100%;
+        /*body*/
+        
+        body {
+            margin: 20px;
+            font-family: Arial;
+            padding: 50px;
+            background: whitesmoke;
+        }
+        /* responsive */
+        
+        * {
+            box-sizing: border-box;
         }
         
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 7px;
+        .main {
+            float: left;
+            width: 100%;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+        
+        @media only screen and (max-width:800px) {
+            /* For tablets: */
+            .main {
+                width: 100%;
+                padding: 0;
+            }
+            .right {
+                width: 100%;
+            }
+        }
+        
+        @media only screen and (max-width:500px) {
+            /* For mobile phones: */
+            .menu,
+            .main,
+            .right {
+                width: 100%;
+            }
+        }
+        /* table */
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 100%;
+            bottom: 20px;
+            margin: auto;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 7px;
             border-color: #96D4D4;
         }
         
         tr:nth-child(even) {
-          background-color: #dddddd;
+            background-color: #dddddd;
         }
-        </style>
+        /* button  */
+        
+        .button {
+            background-color: whitesmoke;
+            border: none;
+            color: black;
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+        .button1 {
+            border-radius: 8px;
+        }
+        
+        .button2 {
+            background-color: #f1c232;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 60px;
+            margin: 3px 2px;
+            cursor: pointer;
+        }
+        
+        .button2 {
+            border-radius: 8px;
+        }
+        /* footer */
+        
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1c232;
+            color: black;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
 </head>
+
 <body>
-    <p style="text-align: center; font-size: 50px;">ECP NewsPosts</p>
-    <p  style="text-align: center; font-size: 40px;">บทความสั้นๆ บทความดีๆ สอนใจ</p>
-
-    <h2 style="text-align: left;">Update Posts!!</h2>
-{% for news in news %}
-    <table>
-         <!-- <tr>
-          <th colspan="2">ชื่อบทความ</th>
-          <th>คำอธิบายบทความ</th>
-        </tr> -->
-        <tr>
-          <td style="text-align: center;">{{news.title}}</td>
-          <td colspan="2">{{news.newsContent}}</td>
-      </table>
-{% endfor %}
-
-
-<p style="text-align: center;">Copyright © 2021. All Rights Reserved.</p>
-<p style="text-align: center;"> Editor with <a href="https://fb.me/guboyphoto">BOY BBQ.</a></p>
+    <div class="main">
+        <p style="text-align: center">
+            <button class="button button2">ECP NewsPosts</button>
+        </p>
+        <marquee behavior="alternate" scrollamount="5">
+            <p style="text-align: center; font-size: 40px">
+                บทความสั้นๆ บทความดีๆ สอนใจ
+            </p>
+        </marquee>
+        <h2 style="text-align: left">Update Posts!!</h2>
+        {% for news in news %}
+        <table>
+            <!-- <tr>
+                <td>ชื่อบทความ</td>
+                <td colspan="2">คำอธิบายบทความ</td>
+            </tr> -->
+            <tr>
+                <td style="text-align: center">{{news.title}}</td>
+                <td colspan="2">{{news.newsContent}}</td>
+            </tr>
+        </table>
+        {% endfor %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="footer">
+            <p style="text-align: center">Copyright © 2021. All Rights Reserved.</p>
+            <p style="text-align: center">
+                Editor with
+                <a target="_blank" href="https://fb.me/guboyphoto">
+                    <button class="button button1">BOY BBQ</button>
+                </a>
+            </p>
+        </div>
+    </div>
 </body>
-</html> 
+
+</html>
